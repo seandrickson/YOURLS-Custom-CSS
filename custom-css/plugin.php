@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: YOURLS Custom CSS Injection
-Plugin URI: https://github.com/seandrickson/YOURLS-Custom-CSS-Injection
+Plugin URI: https://github.com/seandrickson/YOURLS-Custom-CSS
 Description: Add custom CSS to your YOURLS admin area. Some (very) opinionated CSS has already been added. Feel free to edit the CSS in this plugin.
 Version: 1.0
 Author: Sean Hendrickson
