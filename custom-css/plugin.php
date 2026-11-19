@@ -3,7 +3,7 @@
 Plugin Name: YOURLS Custom CSS Injection
 Plugin URI: https://github.com/seandrickson/YOURLS-Custom-CSS
 Description: Add custom CSS to your YOURLS admin area. Some (very) opinionated CSS has already been added. Feel free to edit the CSS in this plugin.
-Version: 1.0
+Version: 1.1
 Author: Sean Hendrickson
 Author URI: https://github.com/seandrickson
 */
@@ -13,15 +13,22 @@ if( !defined( 'YOURLS_ABSPATH' ) ) die();
 
 
 // Add the CSS to <head>
-yourls_add_action( 'html_head', 'my_custom_css' );
-function my_custom_css() { ?>
-<style type="text/css">
+yourls_add_action( 'html_head', 'seandrickson_custom_css' );
+
+/**
+ * Output the custom CSS in the admin <head>.
+ *
+ * @param string $context Page context passed by the 'html_head' action (unused).
+ * @return void
+ */
+function seandrickson_custom_css( $context = '' ) { ?>
+<style>
 	/*********************************\
 	|* vvv CUSTOM CSS GOES BELOW vvv *|
 	\*********************************/
 
 	/* Break long URLs in tables */
-	td { word-break: break-word; -webkit-hyphens: auto; -moz-hyphens: auto; hyphens: auto; }
+	td { overflow-wrap: anywhere; hyphens: auto; }
 
 	/* Do not wrap these elements */
 	.plugin_author, .actions, .url { white-space: nowrap; }
@@ -39,7 +46,7 @@ function my_custom_css() { ?>
 	#main_table_head_date     { width:  80px; }
 	#main_table_head_ip       { width: 100px; }
 	#main_table_head_clicks   { width:  45px; }
-	#main_table_head_actions  { width: 111px; }
+	#main_table_head_actions  { width: 130px; } /* 4 buttons: stats, share, edit, delete */
 
 	/* Plugins Table Widths */
 	.plugins #main_table th             { width: 150px; }
